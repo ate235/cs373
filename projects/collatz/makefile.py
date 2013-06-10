@@ -20,13 +20,13 @@ test:
 	TestCollatz.py
 
 turnin-list:
-	turnin --list bendy cs327epj1
+	turnin --list bendy cs373pj1
 
 turnin-submit:
-	turnin --submit bendy cs327epj1 Collatz.zip
+	turnin --submit bendy cs373pj1 Collatz.zip
 
 turnin-verify:
-	turnin --verify bendy cs327epj1
+	turnin --verify bendy cs373pj1
 
 zip:
 	zip -r Collatz.zip makefile README.txt     \
