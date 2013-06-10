@@ -29,7 +29,7 @@ turnin-verify:
 	turnin --verify bendy cs373pj1
 
 zip:
-	zip -r Collatz.zip makefile README.txt     \
+	zip -r Collatz.zip makefile                \
 	Collatz.html Collatz.log Collatz.py        \
 	RunCollatz.in RunCollatz.out RunCollatz.py \
 	SphereCollatz.py                           \
