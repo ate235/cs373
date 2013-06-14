@@ -60,11 +60,11 @@ class A (object) :
 class B (A) :
     pass
 
-x = A(2, 3.45, "abc");
+x = A(2, 3.45, "abc")
 assert type(x) is A
 assert type(A) is type
 
-y = B(2, 3.45, 6);
+y = B(2, 3.45, 6)
 assert type(y) is B
 assert type(B) is type
 
