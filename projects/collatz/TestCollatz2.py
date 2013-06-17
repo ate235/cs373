@@ -20,7 +20,7 @@ To test the program:
 import StringIO
 import unittest
 
-from Collatz import collatz_read, collatz_eval, collatz_print, collatz_solve
+from Collatz2 import collatz_read, collatz_eval, collatz_print, collatz_solve
 
 # -----------
 # TestCollatz
@@ -33,9 +33,8 @@ class TestCollatz (unittest.TestCase) :
 
     def test_read (self) :
         r = StringIO.StringIO("1 10\n")
-        a = [0, 0]
-        b = collatz_read(r, a)
-        self.assert_(b    == True)
+        p = collatz_read(r)
+        a = p.next()
         self.assert_(a[0] ==  1)
         self.assert_(a[1] == 10)
 
@@ -65,7 +64,7 @@ class TestCollatz (unittest.TestCase) :
 
     def test_print (self) :
         w = StringIO.StringIO()
-        collatz_print(w, 1, 10, 20)
+        collatz_print(w, 20, 1, 10)
         self.assert_(w.getvalue() == "1 10 20\n")
 
     # -----

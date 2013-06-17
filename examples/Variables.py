@@ -18,7 +18,7 @@ b = a
 assert a is b
 b[1] += 1
 assert a[1] == 4
-assert b[1] == 4
+assert a is b
 
 a = (2, 3, 4)
 b = a
