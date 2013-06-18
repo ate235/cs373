@@ -34,28 +34,28 @@ class TestCollatz (unittest.TestCase) :
     def test_read (self) :
         r = StringIO.StringIO("1 10\n")
         p = collatz_read(r)
-        a = p.next()
-        self.assert_(a[0] ==  1)
-        self.assert_(a[1] == 10)
+        (i, j) = p.next()
+        self.assert_(i ==  1)
+        self.assert_(j == 10)
 
     # ----
     # eval
     # ----
 
     def test_eval_1 (self) :
-        v = collatz_eval(1, 10)
+        v = collatz_eval((1, 10))
         self.assert_(v == 20)
 
     def test_eval_2 (self) :
-        v = collatz_eval(100, 200)
+        v = collatz_eval((100, 200))
         self.assert_(v == 125)
 
     def test_eval_3 (self) :
-        v = collatz_eval(201, 210)
+        v = collatz_eval((201, 210))
         self.assert_(v == 89)
 
     def test_eval_4 (self) :
-        v = collatz_eval(900, 1000)
+        v = collatz_eval((900, 1000))
         self.assert_(v == 174)
 
     # -----
@@ -64,7 +64,7 @@ class TestCollatz (unittest.TestCase) :
 
     def test_print (self) :
         w = StringIO.StringIO()
-        collatz_print(w, 20, 1, 10)
+        collatz_print(w, (1, 10), 20)
         self.assert_(w.getvalue() == "1 10 20\n")
 
     # -----

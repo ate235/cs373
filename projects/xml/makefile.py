@@ -14,13 +14,13 @@ diff: RunXML.in RunXML.out RunXML.py
 	rm RunXML.tmp
 
 turnin-list:
-	turnin --list eladlieb cs373pj1
+	turnin --list eladlieb cs373pj2
 
 turnin-submit: XML.zip
-	turnin --submit eladlieb cs373pj1 XML.zip
+	turnin --submit eladlieb cs373pj2 XML.zip
 
 turnin-verify:
-	turnin --verify eladlieb cs373pj1
+	turnin --verify eladlieb cs373pj2
 
 XML.html: XML.py
 	pydoc -w XML

@@ -21,7 +21,7 @@ def collatz_read (r) :
 # collatz_eval
 # ------------
 
-def collatz_eval (i, j) :
+def collatz_eval ((i, j)) :
     """
     i is the beginning of the range, inclusive
     j is the end       of the range, inclusive
@@ -38,7 +38,7 @@ def collatz_eval (i, j) :
 # collatz_print
 # -------------
 
-def collatz_print (w, v, i, j) :
+def collatz_print (w, (i, j), v) :
     """
     prints the values of i, j, and v
     w is a writer
@@ -59,5 +59,5 @@ def collatz_solve (r, w) :
     w is a writer
     """
     for a in collatz_read(r) :
-        v = collatz_eval(*a)
-        collatz_print(w, v, *a)
+        v = collatz_eval(a)
+        collatz_print(w, a, v)
