@@ -16,34 +16,33 @@ print
 
 def sum_1 (a) :
     i = 0
-    s = len(a)
-    v = 0
-    while i != s :
-        v += a[i]
+    s = 0
+    while i != len(a) :
+        s += a[i]
         i += 1
-    return v
+    return s
 
 def sum_2 (a) :
-    v = 0
+    s = 0
     for i in range(len(a)) :
-        v += a[i]
-    return v
+        s += a[i]
+    return s
 
 def sum_3 (a) :
     p = iter(a)
-    v = 0
+    s = 0
     try :
         while True :
-            v += p.next()
+            s += p.next()
     except StopIteration :
         pass
-    return v
+    return s
 
 def sum_4 (a) :
-    v = 0
+    s = 0
     for w in a :
-        v += w
-    return v
+        s += w
+    return s
 
 def sum_5 (a) :
     return reduce(operator.add, a, 0)
