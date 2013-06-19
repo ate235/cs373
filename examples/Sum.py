@@ -29,6 +29,12 @@ def sum_2 (a) :
     return s
 
 def sum_3 (a) :
+    s = 0
+    for i in xrange(len(a)) :
+        s += a[i]
+    return s
+
+def sum_4 (a) :
     p = iter(a)
     s = 0
     try :
@@ -38,13 +44,13 @@ def sum_3 (a) :
         pass
     return s
 
-def sum_4 (a) :
+def sum_5 (a) :
     s = 0
     for w in a :
         s += w
     return s
 
-def sum_5 (a) :
+def sum_6 (a) :
     return reduce(operator.add, a, 0)
 
 def test_1 (f, c) :
@@ -72,7 +78,7 @@ test_1(sum_2, tuple)
 
 test_1(sum_3, list)
 test_1(sum_3, tuple)
-test_1(sum_3, set)
+#test_1(sum_3, set) # TypeError: 'set' object does not support indexing
 
 test_1(sum_4, list)
 test_1(sum_4, tuple)
@@ -82,15 +88,20 @@ test_1(sum_5, list)
 test_1(sum_5, tuple)
 test_1(sum_5, set)
 
+test_1(sum_6, list)
+test_1(sum_6, tuple)
+test_1(sum_5, set)
+
 test_1(sum,   list )
 test_1(sum,   tuple)
 test_1(sum,   set)
 
 test_2(sum_1, "while")
 test_2(sum_2, "for in range")
-test_2(sum_3, "while iter")
-test_2(sum_4, "for in")
-test_2(sum_5, "reduce operator")
+test_2(sum_3, "for in xrange")
+test_2(sum_4, "while iter")
+test_2(sum_5, "for in")
+test_2(sum_6, "reduce operator")
 test_2(sum,   "python")
 
 print "Done."
@@ -101,23 +112,29 @@ Sum.py
 2.7.2 (default, Oct 11 2012, 20:14:37)
 [GCC 4.2.1 Compatible Apple Clang 4.0 (tags/Apple/clang-418.0.60)]
 
+2.7.2 (default, Oct 11 2012, 20:14:37)
+[GCC 4.2.1 Compatible Apple Clang 4.0 (tags/Apple/clang-418.0.60)]
+
 sum_1 (while)
-0.134 milliseconds
+0.157 milliseconds
 
 sum_2 (for in range)
-0.082 milliseconds
+0.081 milliseconds
 
-sum_3 (while iter)
-0.185 milliseconds
+sum_3 (for in xrange)
+0.066 milliseconds
 
-sum_4 (for in)
-0.055 milliseconds
+sum_4 (while iter)
+0.164 milliseconds
 
-sum_5 (reduce operator)
-0.070 milliseconds
+sum_5 (for in)
+0.046 milliseconds
+
+sum_6 (reduce operator)
+0.059 milliseconds
 
 sum (python)
-0.017 milliseconds
+0.009 milliseconds
 
 Done.
 """
