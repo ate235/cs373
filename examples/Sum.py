@@ -51,6 +51,9 @@ def sum_5 (a) :
     return s
 
 def sum_6 (a) :
+    return reduce(lambda x, y : x + y, a, 0)
+
+def sum_7 (a) :
     return reduce(operator.add, a, 0)
 
 def test_1 (f, c) :
@@ -90,7 +93,11 @@ test_1(sum_5, set)
 
 test_1(sum_6, list)
 test_1(sum_6, tuple)
-test_1(sum_5, set)
+test_1(sum_6, set)
+
+test_1(sum_7, list)
+test_1(sum_7, tuple)
+test_1(sum_7, set)
 
 test_1(sum,   list )
 test_1(sum,   tuple)
@@ -101,7 +108,8 @@ test_2(sum_2, "for in range")
 test_2(sum_3, "for in xrange")
 test_2(sum_4, "while iter")
 test_2(sum_5, "for in")
-test_2(sum_6, "reduce operator")
+test_2(sum_6, "reduce lambda")
+test_2(sum_7, "reduce operator")
 test_2(sum,   "python")
 
 print "Done."
@@ -112,26 +120,26 @@ Sum.py
 2.7.2 (default, Oct 11 2012, 20:14:37)
 [GCC 4.2.1 Compatible Apple Clang 4.0 (tags/Apple/clang-418.0.60)]
 
-2.7.2 (default, Oct 11 2012, 20:14:37)
-[GCC 4.2.1 Compatible Apple Clang 4.0 (tags/Apple/clang-418.0.60)]
-
 sum_1 (while)
-0.157 milliseconds
+0.152 milliseconds
 
 sum_2 (for in range)
-0.081 milliseconds
+0.079 milliseconds
 
 sum_3 (for in xrange)
-0.066 milliseconds
+0.060 milliseconds
 
 sum_4 (while iter)
-0.164 milliseconds
+0.170 milliseconds
 
 sum_5 (for in)
-0.046 milliseconds
+0.041 milliseconds
 
-sum_6 (reduce operator)
-0.059 milliseconds
+sum_6 (reduce lambda)
+0.110 milliseconds
+
+sum_7 (reduce operator)
+0.051 milliseconds
 
 sum (python)
 0.009 milliseconds
