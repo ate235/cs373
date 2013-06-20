@@ -104,10 +104,10 @@ test_1(sum,   tuple)
 test_1(sum,   set)
 
 test_2(sum_1, "while")
-test_2(sum_2, "for in range")
-test_2(sum_3, "for in xrange")
+test_2(sum_2, "for range")
+test_2(sum_3, "for xrange")
 test_2(sum_4, "while iter")
-test_2(sum_5, "for in")
+test_2(sum_5, "for")
 test_2(sum_6, "reduce lambda")
 test_2(sum_7, "reduce operator")
 test_2(sum,   "python")
@@ -123,16 +123,16 @@ Sum.py
 sum_1 (while)
 0.152 milliseconds
 
-sum_2 (for in range)
+sum_2 (for range)
 0.079 milliseconds
 
-sum_3 (for in xrange)
+sum_3 (for xrange)
 0.060 milliseconds
 
 sum_4 (while iter)
 0.170 milliseconds
 
-sum_5 (for in)
+sum_5 (for)
 0.041 milliseconds
 
 sum_6 (reduce lambda)
