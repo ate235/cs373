@@ -6,6 +6,7 @@
 
 import itertools
 import operator
+import types
 
 print "Iteration.py"
 
@@ -27,7 +28,7 @@ assert a == ["abc", "def", "ghi"]
 
 a = [[2], [3], [4]]
 for v in a :
-    v += [5]                         # ?
+    v += (5,)                        # ?
 assert a == [[2, 5], [3, 5], [4, 5]]
 
 a = [(2,), (3,), (4,)]
@@ -72,8 +73,8 @@ assert x       == [10, 8, 6, 4]
 x = xrange(10)
 assert type(x) is xrange
 assert x       != [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-assert x[0] == 0
-assert x[9] == 9
+assert x[0]    == 0
+assert x[9]    == 9
 try :
     assert x[10] == 10                           # error: out of range
     assert False
@@ -88,32 +89,32 @@ assert s == 45
 x = xrange(15)
 s = 0
 for v in x :
-    s += v
     if v == 10 :
         break
+    s += v
 else :           # else clause in a for loop
     assert False # executes when the loop terminates normally
-assert s == 55
+assert s == 45
 
 x = itertools.count(0)            # 0, 1, 2, ...
 assert type(x) is itertools.count
 #assert x[0] == 0                 # TypeError: 'itertools.count' object is not indexable
 s = 0
 for v in x :
-    s += v
     if v == 10 :
         break
-assert s == 55
+    s += v
+assert s == 45
 
-x = itertools.count(3, 2) # 3, 5, 7, ...
+x = itertools.count(3, 2) # 3, 5, 7, 9, ...
 s = 0
 for v in x :
-    s += v
     if v > 10 :
         break
-assert s == 35
+    s += v
+assert s == 24
 
-class A :
+class A (object) :
     def __init__ (self, b, e) :
         self.b = b
         self.e = e
@@ -128,20 +129,61 @@ class A :
         self.b += 1
         return v
 
-s = 0
-for v in A(2, 5) :
-    s += v
-assert s == 9
+x = A(0, 3)
+assert type(x)  is A
+assert iter(x)  is x
+assert x.next() == 0
+assert x.next() == 1
+assert x.next() == 2
+try :
+    assert x.next() == 3
+    assert False
+except StopIteration, e :
+    pass
 
-def f () :
-    yield 2
-    yield 3
-    yield 4
+s = 0
+for v in A(0, 10) :
+    s += v
+assert s == 45
+
+def f (b, e) :
+    while b != e :
+        yield b
+        b += 1
+
+x = f(0, 3)
+assert type(x)  is types.GeneratorType
+assert iter(x)  is x
+assert x.next() == 0
+assert x.next() == 1
+assert x.next() == 2
+try :
+    assert x.next() == 3
+    assert False
+except StopIteration, e :
+    pass
 
 s = 0
-for v in f() :
+for v in f(0, 10) :
     s += v
-assert s == 9
+assert s == 45
+
+x = (v for v in xrange(0, 3))
+assert type(x)  is types.GeneratorType
+assert iter(x)  is x
+assert x.next() == 0
+assert x.next() == 1
+assert x.next() == 2
+try :
+    assert x.next() == 3
+    assert False
+except StopIteration, e :
+    pass
+
+s = 0
+for v in (v for v in xrange(0, 10)) :
+    s += v
+assert s == 45
 
 x = [2, 3, 4, 5, 6]
 y = []
