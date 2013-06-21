@@ -114,7 +114,7 @@ for v in x :
     s += v
 assert s == 24
 
-class A (object) :
+class My_XRange (object) :
     def __init__ (self, b, e) :
         self.b = b
         self.e = e
@@ -129,8 +129,8 @@ class A (object) :
         self.b += 1
         return v
 
-x = A(0, 3)
-assert type(x)  is A
+x = My_XRange(0, 3)
+assert type(x)  is My_XRange
 assert iter(x)  is x
 assert x.next() == 0
 assert x.next() == 1
@@ -142,16 +142,16 @@ except StopIteration, e :
     pass
 
 s = 0
-for v in A(0, 10) :
+for v in My_XRange(0, 10) :
     s += v
 assert s == 45
 
-def f (b, e) :
+def my_xrange (b, e) :
     while b != e :
         yield b
         b += 1
 
-x = f(0, 3)
+x = my_xrange(0, 3)
 assert type(x)  is types.GeneratorType
 assert iter(x)  is x
 assert x.next() == 0
@@ -164,7 +164,7 @@ except StopIteration, e :
     pass
 
 s = 0
-for v in f(0, 10) :
+for v in my_xrange(0, 10) :
     s += v
 assert s == 45
 

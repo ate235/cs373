@@ -14,10 +14,26 @@ the one who is least sure of what's being done
 """
 
 """ ----------------------------------------------------------------------
-1. What are the two most common problems with releasing changes?
+2. What are the two most common problems with releasing changes?
    [XP: Ch. 15, Pg. 124-125]
    (2 pts)
 
 slow merges
 lost changes
 """
+
+""" ----------------------------------------------------------------------
+3. What is the output of the following program?
+   (4 pts)
+
+2 2
+3 3
+"""
+
+a = [2, 3, 4]
+p = iter(a)
+q = iter(a)
+print p.next(),
+print q.next()
+print p.next(),
+print q.next()
