@@ -1,14 +1,24 @@
 <?xml version="1.0" ?>
 
-<!-- Bookstore with DTD                    -->
-<!-- Try changes:                          -->
-<!--   Make Edition required               -->
-<!--   Swap order of First_Name, Last_Name -->
-<!--   Add empty Remark                    -->
-<!--   Add Magazine, omit closing tag      -->
+<!--
+Bookstore with DTD
 
-<!-- http://en.wikipedia.org/wiki/Document_Type_Definition -->
-<!-- xmllint 2-noout 2-valid Bookstore-DTD.xml -->
+% xmllint 2-noout Bookstore1.dtd.xml
+%
+
+
+
+% xmllint 2-noout 2-valid Bookstore1.dtd.xml
+%
+
+
+
+Try changes:
+    Make Edition required
+    Swap order of First_Name, Last_Name
+    Add empty Remark
+    Add Magazine, omit closing tag
+-->
 
 <!DOCTYPE Bookstore [
    <!ELEMENT Bookstore  (Book | Magazine)*>

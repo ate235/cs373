@@ -1,12 +1,23 @@
 <?xml version="1.0" ?>
 
-<!-- Bookstore using ID/IDREFs      -->
-<!-- Try changes:                   -->
-<!--   Ident JU to HG               -->
-<!--   BookRef to HG                -->
-<!--   Add second BookRef in Remark -->
+<!--
+Bookstore using ID/IDREFs
 
-<!-- xmllint 2-noout 2-valid Bookstore-DTD.xml -->
+% xmllint 2-noout Bookstore2.dtd.xml
+%
+
+
+
+% xmllint 2-noout 2-valid Bookstore2.dtd.xml
+%
+
+
+
+Try changes:
+    Ident JU to HG
+    BookRef to HG
+    Add second BookRef in Remark
+-->
 
 <!DOCTYPE Bookstore [
    <!ELEMENT Bookstore  (Book*, Author*)>

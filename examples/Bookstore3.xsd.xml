@@ -1,6 +1,8 @@
 <?xml version="1.0" ?>
 
-<!-- XSD for Bookstore-XSD.xml -->
+<!--
+XSD for Bookstore3.xml
+-->
 
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <xsd:element name="Bookstore">

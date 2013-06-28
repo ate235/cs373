@@ -1,6 +1,8 @@
 <?xml version="1.0" ?>
 
 <!--
+Bookstore with no DTD
+
 well-formed Extensible Markup Language (XML) adheres to:
     Single root element
     Matched tags, optional attributes, proper nesting
@@ -10,7 +12,8 @@ valid XML additionally adheres to either:
     Document Type Descriptor (DTD)
     XML Schema (XSD)
 
-Bookstore with no DTD
+
+
 
 % xmllint -version
 xmllint: using libxml version 20708
