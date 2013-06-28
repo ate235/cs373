@@ -3,7 +3,7 @@
 <!--
 well-formed Extensible Markup Language (XML) adheres to:
     Single root element
-    Matched tags, proper nesting
+    Matched tags, optional attributes, proper nesting
     Unique attributes within elements
 
 valid XML additionally adheres to either:
