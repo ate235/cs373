@@ -15,20 +15,22 @@ Python is procedural, object-oriented, dynamically typed, and garbage collected.
 % python -V
 Python 2.7.3
 %
-"""
 
-"""
+
+
 % python Hello.py
 Nothing to be done.
 %
+
+
 
 % chmod ugo+x Hello.py
 % Hello.py
 Nothing to be done.
 %
-"""
 
-"""
+
+
 % python
 Python 2.7.3 (default, Aug  1 2012, 05:14:39)
 [GCC 4.6.3] on linux2
@@ -39,9 +41,9 @@ Nothing to be done.
 
 >>> quit()
 %
-"""
 
-"""
+
+
 % python
 Python 2.7.3 (default, Aug  1 2012, 05:14:39)
 [GCC 4.6.3] on linux2
@@ -78,9 +80,9 @@ help> quit
 
 >>> quit()
 %
-"""
 
-"""
+
+
 % python
 Python 2.7.3 (default, Aug  1 2012, 05:14:39)
 [GCC 4.6.3] on linux2
