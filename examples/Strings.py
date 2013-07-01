@@ -119,4 +119,14 @@ t = s.replace("Cb", "Xy", 1)
 assert s == "abCbACb"
 assert t == "abXyACb"
 
+s = "abCbACb"
+t = s.split("Cb")
+assert s == "abCbACb"
+assert t == ['ab', 'A', '']
+
+s = "abCbACb"
+t = s.split("Cx")
+assert s == "abCbACb"
+assert t == [s]
+
 print "Done."
