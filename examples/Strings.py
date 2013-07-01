@@ -85,6 +85,11 @@ t = s.upper()
 assert s == "abCbA"
 assert t == "ABCBA"
 
+s = "ABCBA"
+t = s.upper()
+assert s is not t
+assert s ==     t
+
 s = "abCbACb"
 n = s.find("Cb")
 assert s == "abCbACb"
