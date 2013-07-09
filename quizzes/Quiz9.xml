@@ -1,14 +1,12 @@
-<! --
 CS373: Quiz #9 (10 pts)
--->
 
-<! ------------------------------------------------------------------------
+--------------------------------------------------------------------------
 1. Which of the following choices COULD be the info element spec in a DTD
    for the following XML?
    (4 pts)
 
 c.
--->
+--
 
 <info>
     <addr>101 Maple St.</addr>
@@ -21,7 +19,7 @@ b. <!ELEMENT info (addr, phone)>
 c. <!ELEMENT info (addr?, phone+)>
 d. <!ELEMENT info (name+, addr, phone*)>
 
-<! ------------------------------------------------------------------------
+--------------------------------------------------------------------------
 2. Which of the following choices COULD NOT be the info element spec in a
    DTD for the following XML?
    Note that there can be multiple ATTLIST declarations for a single
@@ -30,7 +28,7 @@ d. <!ELEMENT info (name+, addr, phone*)>
    (5 pts)
 
 c.
--->
+--
 
 <emp name = "Kermit">
     <addr>123 Sesame St.</addr>
