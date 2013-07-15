@@ -10,11 +10,13 @@ class A (object) :
     def f (self) :
 #       self.v                        # AttributeError: 'A' object has no attribute 'v0'
         self.v0     = 0
+#       self.v1     =     v0      + 1 # NameError: global name 'v0' is not defined
+#       self.v1     =    A.v0     + 1 # AttributeError: type object 'A' has no attribute 'v0'
         self.v1     = self.v0     + 1
-        self.__v2   = self.v1     + 1
-        self._A__v3 = self.__v2   + 1
-        self._A__v3 = self._A__v2 + 1
-        self.__v3   = self.__v2   + 1
+        self.__v2   = self.v1     + 1 # self.__v2 and self._A__v2 become synonymous
+        self._A__v2 = self.v1     + 1
+        self._A__v3 = self.__v2   + 1 # self.__v3 and self._A__v3 become synonymous
+        self.__v3   = self._A__v2 + 1
 
 x = A()
 assert     hasattr(x, "f")
@@ -25,19 +27,24 @@ assert     hasattr(x, "v0")
 assert     hasattr(x, "v1")
 assert not hasattr(x, "__v2")
 assert     hasattr(x, "_A__v2")
+assert not hasattr(x, "__v3")
 assert     hasattr(x, "_A__v3")
 assert not hasattr(x, "v4")
 assert     hasattr(x, "__dict__")
 
 assert x.v0     == 0
 assert x.v1     == 1
+#assert x.v2    == 2 # AttributeError: 'A' object has no attribute 'v2'
 assert x._A__v2 == 2
+# assert x.v3    == 3 # AttributeError: 'A' object has no attribute 'v3'
 assert x._A__v3 == 3
 #assert x.v4    == 4 # AttributeError: 'A' object has no attribute 'v4'
 
 assert x.__dict__["v0"]     == 0
 assert x.__dict__["v1"]     == 1
+#assert x.__dict__["v2"]    == 2 # KeyError: '__v2'
 assert x.__dict__["_A__v2"] == 2
+#assert x.__dict__["v3"]    == 3 # KeyError: '__v3'
 assert x.__dict__["_A__v3"] == 3
 #assert x.__dict__["v4"]    == 4 # KeyError: '__v4'
 
@@ -51,12 +58,17 @@ assert x.v4             == [2, 3, 4]
 assert x.__dict__["v4"] == [2, 3, 4]
 
 y.v4 = [2, 3, 4]
-assert x.v4 ==     y.v4
-assert x.v4 is not y.v4
+assert hasattr(y, "v4")
+assert y.v4             ==     [2, 3, 4]
+assert y.__dict__["v4"] ==     [2, 3, 4]
+assert x.v4             is not y.v4
+assert x.v4             ==     y.v4
 
 del x.v0
 assert not hasattr(x, "v0")
 assert     hasattr(y, "v0")
+#assert x.v0             == 0 # AttributeError: 'A' object has no attribute 'v0'
+#assert x.__dict__["v0"] == 0 # AttributeError: 'A' object has no attribute 'v0'
 
 #assert A.v1 == 1 # AttributeError: type object 'A' has no attribute 'v1'
 
