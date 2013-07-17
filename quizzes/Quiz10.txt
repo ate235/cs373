@@ -1,4 +1,4 @@
-CS373: Quiz #10 (9 pts)
+CS373: Quiz #10 (10 pts)
 
 --------------------------------------------------------------------------
 1. Which of the following is NOT a valid JSON array?
