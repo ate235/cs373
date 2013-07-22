@@ -83,36 +83,26 @@ Student cross Apply
 select *
     from Student cross join Apply;
 
-# select *
-#     from Student, Apply;
-
 /* -----------------------------------------------------------------------
-Student join[Student.sID = Apply.sID] Apply
 Student join                          Apply
+Student join[Student.sID = Apply.sID] Apply
 */
 
 # select *
-#     from Student, Apply
-#     where Student.sID = Apply.sID;
+#     from Student
+#     natural join Apply;
 
 # select *
-#     from Student inner join Apply
-#     on Student.sID = Apply.sID;
+#     from Student
+#     cross join Apply where Student.sID = Apply.sID;
 
 # select *
-#     from Student join Apply
-#     on Student.sID = Apply.sID;
-
-# select *
-#     from Student inner join Apply
-#     using (sID);
-
-# select *
-#     from Student join Apply
-#     using (sID);
+#     from Student
+#     inner join Apply on Student.sID = Apply.sID;
 
 select *
-    from Student natural join Apply;
+    from Student
+    inner join Apply using (sID);
 
 /* -----------------------------------------------------------------------
 name and GPA of students
@@ -128,11 +118,13 @@ project[sName, GPA]
 */
 
 select *
-    from Student natural join Apply
+    from Student
+    inner join Apply using (sID)
     where (sizeHS > 1000) and (major = 'CS') and (decision = false);
 
 select sName, GPA
-    from Student natural join Apply
+    from Student
+    inner join Apply using (sID)
     where (sizeHS > 1000) and (major = 'CS') and (decision = false);
 
 /* -----------------------------------------------------------------------
@@ -151,14 +143,18 @@ project[sName, GPA]
 */
 
 select *
-    from Student natural join Apply natural join College
+    from Student
+        inner join Apply   using (sID)
+        inner join College using (cName)
     where (sizeHS     > 500)   and
           (major      = 'CS')  and
           (decision   = true)  and
           (enrollment > 20000);
 
 select sName, GPA
-    from Student natural join Apply natural join College
+    from Student
+        inner join Apply   using (sID)
+        inner join College using (cName)
     where (sizeHS     > 500)   and
           (major      = 'CS')  and
           (decision   = true)  and
