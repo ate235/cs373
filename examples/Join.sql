@@ -77,24 +77,26 @@ insert into College values ('MIT',      'MA', 10000);
 insert into College values ('Stanford', 'CA', 15000);
 
 /* -----------------------------------------------------------------------
-Student cross Apply
+Student cross join Apply
 */
+
+# select *
+#     from Student, Apply;
 
 select *
     from Student cross join Apply;
 
 /* -----------------------------------------------------------------------
-Student join                          Apply
-Student join[Student.sID = Apply.sID] Apply
+Student theta join[Student.sID = Apply.sID] Apply
 */
 
 # select *
 #     from Student
-#     natural join Apply;
+#     cross join Apply where Student.sID = Apply.sID;
 
 # select *
 #     from Student
-#     cross join Apply where Student.sID = Apply.sID;
+#     inner join Apply where Student.sID = Apply.sID;
 
 # select *
 #     from Student
@@ -103,6 +105,14 @@ Student join[Student.sID = Apply.sID] Apply
 select *
     from Student
     inner join Apply using (sID);
+
+/* -----------------------------------------------------------------------
+Student natural join Apply
+*/
+
+select *
+    from Student
+    natural join Apply;
 
 /* -----------------------------------------------------------------------
 name and GPA of students

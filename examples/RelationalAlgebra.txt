@@ -1,0 +1,243 @@
+--------------------------------------------------------------------------
+ 1. Suppose relation R(A, C) has the following tuples:
+
+    A   C
+    3   3
+    6   4
+    2   3
+    3   5
+    7   1
+
+    and relation S(B, C, D) has the following tuples:
+
+    B   C   D
+    5   1   6
+    1   5   8
+    4   3   9
+
+    Compute the natural join of R and S.
+    Which of the following tuples is in the result?
+    Assume each tuple has schema (A,B,C,D).
+--
+
+a. (2, 3, 1, 6)
+b. (3, 3, 5, 8)
+c. (7, 5, 1, 6)
+d. (3, 5, 1, 6)
+
+--------------------------------------------------------------------------
+ 2. Suppose relation R(A, B) has the following tuples:
+
+    A   B
+    1   a
+    7   t
+    2   g
+    4   c
+    9   t
+
+    and relation S(B, C, D) has the following tuples:
+
+    B   C   D
+    c   5   6
+    a   7   8
+    t   8   9
+
+    Compute the theta-join of R and S with the condition
+    R.B = S.B and R.A < S.C.
+    Which of the following tuples is in the result?
+    Assume each tuple has schema (A, R.B, S.B, C, D).
+--
+
+a. (9, t, t, 8, 9)
+b. (4, c, c, 7, 8)
+c. (4, c, c, 5, 6)
+d. (2, g, g, 7, 8
+
+--------------------------------------------------------------------------
+ 3. Consider a relation R(A, B) with r tuples, all unique within R, and a
+    relation S(B, C) with s tuples, all unique within S.
+    Let t represent the number of tuples in R natural-join S.
+    Which of the following triples of values (r, s, t) is possible?
+--
+
+a. (5, 2, 10)
+b. (5, 0, 5)
+c. (5, 10, 500)
+d. (5, 5, 50)
+
+--------------------------------------------------------------------------
+ 4. Consider a relation R(A) with r tuples, all unique within R, and a
+    relation S(A) with s tuples, all unique within S.
+    Let t represent the number of tuples in R minus S.
+    Which of the following triples of values (r,s,t) is possible?
+--
+
+a. (5, 3, 1)
+b. (10, 13, 8)
+c. (5, 10, -5)
+d. (5, 10, 10)
+
+--------------------------------------------------------------------------
+ 5. Suppose relation R(A, B) has the following tuples:
+
+    A   B
+    1   2
+    3   4
+    5   6
+
+    and relation S(B, C, D) has the following tuples:
+
+    B   C   D
+    2   4   6
+    4   6   8
+    4   7   9
+
+    Compute the natural join of R and S.
+    Which of the following tuples is in the result?
+    Assume each tuple has schema (A, B, C, D).
+--
+
+a. (5, 6, 7, 8)
+b. (1, 2, 4, 6)
+c. (3, 4, 2, 6)
+d. (1, 2, 6, 8)
+
+--------------------------------------------------------------------------
+ 6. Suppose relation R(A, B) has the following tuples:
+
+    A   B
+    1   2
+    3   4
+    5   6
+
+    and relation S(B, C, D) has the following tuples:
+
+    B   C   D
+    2   4   6
+    4   6   8
+    4   7   9
+
+    Compute the theta-join of R and S with the condition
+    R.A < S.C and R.B < S.D.
+    Which of the following tuples is in the result?
+    Assume each tuple has schema (A, R.B, S.B, C, D).
+--
+
+a. (3, 4, 2, 4, 6)
+b. (1, 2, 2, 6, 8)
+c. (3, 4, 4, 7, 8)
+d. (3, 4, 5, 7, 9)
+
+--------------------------------------------------------------------------
+ 7. Suppose relation R(A, B, C) has the following tuples:
+
+    A   B   C
+    1   2   3
+    4   2   3
+    4   5   6
+    2   5   3
+    1   2   6
+
+    Compute project[C,B](R).
+    Which of the following tuples is in the result?
+--
+
+a. (5, 6)
+b. (2, 6)
+c. (3, 5)
+d. (5, 3)
+
+--------------------------------------------------------------------------
+ 8. Suppose relation R(A, B, C) has the following tuples:
+
+    A   B   C
+    1   2   3
+    4   2   3
+    4   5   6
+    2   5   3
+    1   2   6
+
+    and relation S(A, B, C) has the following tuples:
+
+    A   B   C
+    2   5   3
+    2   5   4
+    4   5   6
+    1   2   3
+
+    Compute the union of R and S.
+    Which of the following tuples DOES NOT appear in the result?
+--
+
+a. (2, 5, 3)
+b. (1, 5, 4)
+c. (2, 5, 4)
+d. (1, 2, 6)
+
+--------------------------------------------------------------------------
+ 9. Suppose relation R(A, B, C) has the following tuples:
+
+    A   B   C
+    1   2   3
+    4   2   3
+    4   5   6
+    2   5   3
+    1   2   6
+
+    and relation S(A, B, C) has the following tuples:
+
+    A   B   C
+    2   5   3
+    2   5   4
+    4   5   6
+    1   2   3
+
+    Compute the intersection of the relations R and S.
+    Which of the following tuples is in the result?
+--
+
+a. (2, 5, 3)
+b. (1, 2, 4)
+c. (2, 5, 4)
+d. (4, 2, 3)
+
+--------------------------------------------------------------------------
+10. Suppose relation R(A, B, C) has the following tuples:
+
+    A   B   C
+    1   2   3
+    4   2   3
+    4   5   6
+    2   5   3
+    1   2   6
+
+    and relation S(A, B, C) has the following tuples:
+
+    A   B   C
+    2   5   3
+    2   5   4
+    4   5   6
+    1   2   3
+
+    Compute (R - S) union (S - R), often called the "symmetric difference" of R and S.
+    Which of the following tuples is in the result?
+--
+
+a. (1, 5, 6)
+b. (4, 2, 3)
+c. (1, 2, 3)
+d. (2, 2, 3)
+
+--------------------------------------------------------------------------
+Answers
+
+ 1. c
+ 2. c
+ 3. a
+ 4. b
+ 5. b
+ 6. a
+ 7. c
+ 8. b
+ 9. a
+10. b
