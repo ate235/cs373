@@ -1,0 +1,47 @@
+CS373: Quiz #15 (10 pts)
+
+--------------------------------------------------------------------------
+ 1. The five relational algebra (RA) operators presented so far are:
+        select[<cond>]        <relation>
+        project[<attributes>] <relation>
+        cross join            <relation> <relation>
+        theta join[<cond>]    <relation> <relation>
+        natural join          <relation> <relation>
+    How can you express the theta join in terms of the other operators?
+    (3 pts)
+
+theta join[<cond>] <relations> = select[<cond>] cross join <relations>
+--
+
+--------------------------------------------------------------------------
+2. Consider a relation R(A) with r tuples, all unique within R, and a
+   relation S(B) with s tuples, all unique within S.
+   How many tuples are in R cross   join S?
+   How many tuples are in R natural join S?
+   (2 pts)
+
+r * s
+r * s
+--
+
+--------------------------------------------------------------------------
+3. Consider a relation R(A) with r tuples, all unique within R, and a
+   relation S(A) with s tuples, all unique within S.
+   Furthermore, all the tuples in R are distinct from all the tuples in S.
+   How many tuples are in R cross   join S?
+   How many tuples are in R natural join S?
+   (2 pts)
+
+r * s
+0
+--
+
+--------------------------------------------------------------------------
+4. Consider a relation R(A) with r tuples, all unique within R.
+   How many tuples are in R cross   join R?
+   How many tuples are in R natural join R?
+   (2 pts)
+
+r * r
+r
+--
