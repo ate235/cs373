@@ -16,7 +16,7 @@ Create
 select "Create";
 
 create table R (A int);
-create table S (B int);
+create table S (B int, C int);
 
 /* -----------------------------------------------------------------------
 Insert
@@ -28,11 +28,10 @@ insert into R values (1);
 insert into R values (2);
 insert into R values (3);
 
-insert into S values (1);
-insert into S values (4);
-insert into S values (3);
-insert into S values (5);
-
+insert into S values (1, 6);
+insert into S values (1, 7);
+insert into S values (4, 8);
+insert into S values (4, 9);
 
 /* -----------------------------------------------------------------------
 Cross Join
@@ -138,7 +137,7 @@ Create
 select "Create";
 
 create table R (A int);
-create table S (A int);
+create table S (A int, C int);
 
 /* -----------------------------------------------------------------------
 Insert
@@ -150,10 +149,10 @@ insert into R values (1);
 insert into R values (2);
 insert into R values (3);
 
-insert into S values (6);
-insert into S values (7);
-insert into S values (8);
-insert into S values (9);
+insert into S values (6, 1);
+insert into S values (7, 2);
+insert into S values (8, 3);
+insert into S values (9, 4);
 
 /* -----------------------------------------------------------------------
 Cross Join
@@ -274,7 +273,7 @@ Create
 select "Create";
 
 create table R (A int);
-create table S (A int);
+create table S (A int, C int);
 
 /* -----------------------------------------------------------------------
 Insert
@@ -286,10 +285,10 @@ insert into R values (1);
 insert into R values (2);
 insert into R values (3);
 
-insert into S values (1);
-insert into S values (4);
-insert into S values (3);
-insert into S values (5);
+insert into S values (1, 6);
+insert into S values (1, 7);
+insert into S values (4, 8);
+insert into S values (4, 9);
 
 /* -----------------------------------------------------------------------
 Cross Join
