@@ -4,6 +4,8 @@ use downing_test;
 Drop
 */
 
+select "Drop";
+
 drop table if exists Student;
 drop table if exists Apply;
 drop table if exists College;
@@ -11,6 +13,8 @@ drop table if exists College;
 /* -----------------------------------------------------------------------
 Create
 */
+
+select "Create";
 
 create table Student (
     sID    int,
@@ -33,6 +37,8 @@ create table College (
 Show
 */
 
+select "Show";
+
 show tables;
 show columns from Student;
 show columns from Apply;
@@ -41,6 +47,8 @@ show columns from College;
 /* -----------------------------------------------------------------------
 Insert
 */
+
+select "Insert";
 
 insert into Student values (123, 'Amy',    3.9,  1000);
 insert into Student values (234, 'Bob',    3.6,  1500);
@@ -89,6 +97,8 @@ insert into College values ('Stanford', 'CA', 15000);
 Select
 */
 
+select "Select";
+
 select * from Student;
 select * from Apply;
 select * from College;
@@ -96,6 +106,8 @@ select * from College;
 /* -----------------------------------------------------------------------
 Drop
 */
+
+select "Drop";
 
 drop table if exists Student;
 drop table if exists Apply;

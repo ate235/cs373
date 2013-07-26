@@ -4,6 +4,8 @@ use downing_test;
 Drop
 */
 
+select "Drop";
+
 drop table if exists Student;
 drop table if exists Apply;
 drop table if exists College;
@@ -11,6 +13,8 @@ drop table if exists College;
 /* -----------------------------------------------------------------------
 Create
 */
+
+select "Create";
 
 create table Student (
     sID    int,
@@ -32,6 +36,8 @@ create table College (
 /* -----------------------------------------------------------------------
 Insert
 */
+
+select "Insert";
 
 insert into Student values (123, 'Amy',    3.9,  1000);
 insert into Student values (234, 'Bob',    3.6,  1500);
@@ -83,8 +89,11 @@ select[GPA > 3.7]
    (Student)
 */
 
+select "Select";
+
 select *
-    from Student where (GPA > 3.7);
+    from Student
+    where (GPA > 3.7);
 
 /* -----------------------------------------------------------------------
 students with GPA > 3.7 and high school size < 1000
@@ -115,6 +124,8 @@ project[sID, decision]
    (Apply)
 */
 
+select "Project";
+
 select sID, decision
     from Apply;
 
@@ -125,6 +136,8 @@ project[sID, sName]
    (select[GPA > 3.7]
        (Student))
 */
+
+select "Select and Project";
 
 select sID, sName
     from Student
@@ -137,6 +150,8 @@ project[major, decision]
    (Apply)
 */
 
+select "Distinct";
+
 select major, decision
     from Apply;
 
@@ -146,6 +161,8 @@ select distinct major, decision
 /* -----------------------------------------------------------------------
 Drop
 */
+
+select "Drop";
 
 drop table if exists Student;
 drop table if exists Apply;
