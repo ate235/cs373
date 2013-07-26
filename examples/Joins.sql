@@ -4,6 +4,8 @@ use downing_test;
 Drop
 */
 
+select "Drop";
+
 drop table if exists R;
 drop table if exists S;
 
@@ -11,12 +13,16 @@ drop table if exists S;
 Create
 */
 
+select "Create";
+
 create table R (A int);
 create table S (B int);
 
 /* -----------------------------------------------------------------------
 Insert
 */
+
+select "Insert";
 
 insert into R values (1);
 insert into R values (2);
@@ -120,6 +126,8 @@ select       *  from R natural join S;
 Drop
 */
 
+select "Drop";
+
 drop table if exists R;
 drop table if exists S;
 
@@ -127,12 +135,16 @@ drop table if exists S;
 Create
 */
 
+select "Create";
+
 create table R (A int);
 create table S (A int);
 
 /* -----------------------------------------------------------------------
 Insert
 */
+
+select "Insert";
 
 insert into R values (1);
 insert into R values (2);
@@ -250,6 +262,8 @@ select       *  from R natural join S;
 Drop
 */
 
+select "Drop";
+
 drop table if exists R;
 drop table if exists S;
 
@@ -257,12 +271,16 @@ drop table if exists S;
 Create
 */
 
+select "Create";
+
 create table R (A int);
 create table S (A int);
 
 /* -----------------------------------------------------------------------
 Insert
 */
+
+select "Insert";
 
 insert into R values (1);
 insert into R values (2);
@@ -380,6 +398,8 @@ select       *  from R natural join S;
 Drop
 */
 
+select "Drop";
+
 drop table if exists R;
 drop table if exists S;
 drop table if exists T;
@@ -388,11 +408,15 @@ drop table if exists T;
 Create
 */
 
+select "Create";
+
 create table T (A int);
 
 /* -----------------------------------------------------------------------
 Insert
 */
+
+select "Insert";
 
 insert into T values (1);
 insert into T values (2);
@@ -499,6 +523,8 @@ select       *  from T as R natural join T as S;
 /* -----------------------------------------------------------------------
 Drop
 */
+
+select "Drop";
 
 drop table if exists T;
 
