@@ -26,5 +26,5 @@ WCDB1.log:
 
 # add other .html and .py files
 
-WCDB1.zip: WCDB1.html WCDB1.log WCDB1.pdf WCDB1.py WCDB1.xml WCDB1.xsd.xml TestWCDB1.py
-	zip -r WCDB1.zip  WCDB1.html WCDB1.log WCDB1.pdf WCDB1.py WCDB1.xml WCDB1.xsd.xml TestWCDB1.py
+WCDB1.zip:           WCDB1.html WCDB1.log WCDB1.pdf WCDB1.py WCDB1.xml WCDB1.xsd.xml TestWCDB1.py
+	zip -r WCDB1.zip WCDB1.html WCDB1.log WCDB1.pdf WCDB1.py WCDB1.xml WCDB1.xsd.xml TestWCDB1.py
