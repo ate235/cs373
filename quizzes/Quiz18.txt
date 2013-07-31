@@ -1,0 +1,34 @@
+CS373: Quiz #18 (10 pts)
+
+--------------------------------------------------------------------------
+ 1. Rackspace mentioned three Agile processes that they use.
+    Name any two.
+    (4 pts)
+
+Scrum
+Kanban
+ScrumBan
+--
+
+--------------------------------------------------------------------------
+ 2. The paper, "Evolutionary Database Design", describes a big difference
+    about database refactorings that involve three different changes that
+    have to be done together.
+    What are those three changes?
+    (3 pts)
+
+changing the database schema
+migrating the data in the database
+changing the database access code
+--
+
+--------------------------------------------------------------------------
+ 3. In the paper, "Single Responsibility Principle", three pairs of
+    classes were given as examples.
+    Name any two pairs.
+    (2 pts)
+
+Game                / Scorer
+Geometric Rectangle / Rectangle
+Data      Channel   / Connection
+--
