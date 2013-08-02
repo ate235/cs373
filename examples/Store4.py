@@ -14,6 +14,8 @@ Changed totalAmount          to get_total_charge()
 Changed frequentRenterPoints to get_total_frequent_renter_points()
 """
 
+print "Store4.py"
+
 class Movie (object) :
     REGULAR     = 0
     NEW_RELEASE = 1
@@ -121,8 +123,6 @@ class Customer (object) :
         result += "Amount owed is " + str(self.get_total_charge())                 + "\n"
         result += "You earned "     + str(self.get_total_frequent_renter_points()) + " frequent renter points";
         return result
-
-print "Store4.py"
 
 x = Customer("Penelope")
 assert x.statement() ==                     \

@@ -5,14 +5,18 @@
 # ---------
 
 """
-Change Movie.Movie() to take a Price instead of a price code
-Remove Movie.set_price_code()
-Remove Movie.getPriceCode()
-Remove Movie.REGULAR
-Remove Movie.NEW_RELEASE
-Remove Movie.CHILDRENS
-Remove Rental.get_days_rented()
+Replace Type Code with State/Strategy (227)
+Move Method(142)
+Replace Conditional with Polymorphism (225)
+Create Price
+Create RegularPrice
+Create NewReleasePrice
+Create ChildrensPrice
+Create Price.get_charge()
+Create Price.get_frequent_renter_points()
 """
+
+print "Store7.py"
 
 class Price (object) :
     def get_frequent_renter_points (self, days_rented) : # const
@@ -25,12 +29,18 @@ class RegularPrice (Price) :
             result += (days_rented - 2) * 1.5
         return result
 
+    def get_price_code () :  # const, not used
+        return Movie.REGULAR
+
 class NewReleasePrice (Price) :
     def get_charge (self, days_rented) : # const
         return days_rented * 3
 
     def get_frequent_renter_points (self, days_rented) :
         return 2 if (days_rented > 1) else 1
+
+    def get_price_code () :      # const, not used
+        return Movie.NEW_RELEASE
 
 class ChildrensPrice (Price) :
     def get_charge (self, days_rented) : # const
@@ -39,10 +49,17 @@ class ChildrensPrice (Price) :
             result += (days_rented - 3) * 1.5
         return result
 
+    def get_price_code () :    # const, not used
+        return Movie.CHILDRENS
+
 class Movie (object) :
+    REGULAR     = RegularPrice()
+    NEW_RELEASE = NewReleasePrice()
+    CHILDRENS   = ChildrensPrice()
+
     def __init__ (self, title, price) :
         self.title = title
-        self.price = price
+        self.set_price(price)
 
     """
     price
@@ -58,8 +75,14 @@ class Movie (object) :
     def get_frequent_renter_points (self, days_rented) :
         return self.price.get_frequent_renter_points(days_rented)
 
+    def get_price (self) : # const
+        return self.price
+
     def get_title (self) : # const
         return self.title
+
+    def set_price (self, price) :
+        self.price = price
 
 class Rental (object) :
     def __init__ (self, movie, days_rented) :
@@ -72,6 +95,9 @@ class Rental (object) :
     """
     def get_charge (self) : # const
         return self.movie.get_charge(self.days_rented)
+
+    def get_days_rented (self) : # const
+        return self.days_rented
 
     """
     movie
@@ -128,22 +154,20 @@ class Customer (object) :
         result += "You earned "     + str(self.get_total_frequent_renter_points()) + " frequent renter points";
         return result
 
-print "Store7.py"
-
 x = Customer("Penelope")
 assert x.statement() ==                     \
     "Rental Record for Penelope\n"        + \
     "Amount owed is 0\n"                  + \
     "You earned 0 frequent renter points"
 
-x.add_rental(Rental(Movie("Shane", RegularPrice()), 2))
+x.add_rental(Rental(Movie("Shane", Movie.REGULAR), 2))
 assert x.statement() ==                     \
     "Rental Record for Penelope\n"        + \
     "\tShane\t2\n"                        + \
     "Amount owed is 2\n"                  + \
     "You earned 1 frequent renter points"
 
-x.add_rental(Rental(Movie("Red River", RegularPrice()), 5))
+x.add_rental(Rental(Movie("Red River", Movie.REGULAR), 5))
 assert x.statement() ==                     \
     "Rental Record for Penelope\n"        + \
     "\tShane\t2\n"                        + \
@@ -151,7 +175,7 @@ assert x.statement() ==                     \
     "Amount owed is 8.5\n"                + \
     "You earned 2 frequent renter points"
 
-x.add_rental(Rental(Movie("Giant", NewReleasePrice()), 1))
+x.add_rental(Rental(Movie("Giant", Movie.NEW_RELEASE), 1))
 assert x.statement() ==                     \
     "Rental Record for Penelope\n"        + \
     "\tShane\t2\n"                        + \
@@ -160,7 +184,7 @@ assert x.statement() ==                     \
     "Amount owed is 11.5\n"               + \
     "You earned 3 frequent renter points"
 
-x.add_rental(Rental(Movie("2001", NewReleasePrice()), 3))
+x.add_rental(Rental(Movie("2001", Movie.NEW_RELEASE), 3))
 assert x.statement() ==                     \
     "Rental Record for Penelope\n"        + \
     "\tShane\t2\n"                        + \
@@ -170,7 +194,7 @@ assert x.statement() ==                     \
     "Amount owed is 20.5\n"               + \
     "You earned 5 frequent renter points"
 
-x.add_rental(Rental(Movie("Big Country", ChildrensPrice()), 3))
+x.add_rental(Rental(Movie("Big Country", Movie.CHILDRENS), 3))
 assert x.statement() ==                     \
     "Rental Record for Penelope\n"        + \
     "\tShane\t2\n"                        + \
@@ -181,7 +205,7 @@ assert x.statement() ==                     \
     "Amount owed is 22.0\n"               + \
     "You earned 6 frequent renter points"
 
-x.add_rental(Rental(Movie("Spartacus", ChildrensPrice()), 5))
+x.add_rental(Rental(Movie("Spartacus", Movie.CHILDRENS), 5))
 assert x.statement() ==                     \
     "Rental Record for Penelope\n"        + \
     "\tShane\t2\n"                        + \

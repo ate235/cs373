@@ -4,6 +4,8 @@
 # Store1.py
 # ---------
 
+print "Store1.py"
+
 class Movie (object) :
     REGULAR     = 0
     NEW_RELEASE = 1
@@ -80,8 +82,6 @@ class Customer (object) :
         result += "Amount owed is " + str(total_amount)           + "\n"
         result += "You earned "     + str(frequent_renter_points) + " frequent renter points";
         return result
-
-print "Store1.py"
 
 x = Customer("Penelope")
 assert x.statement() ==                     \

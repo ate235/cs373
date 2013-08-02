@@ -10,6 +10,8 @@ Move Rental.get_charge()                 to Movie.get_charge()
 Move Rental.get_frequent_renter_points() to Movie.get_frequent_renter_points()
 """
 
+print "Store5.py"
+
 class Movie (object) :
     REGULAR     = 0
     NEW_RELEASE = 1
@@ -117,8 +119,6 @@ class Customer (object) :
         result += "Amount owed is " + str(self.get_total_charge())                 + "\n"
         result += "You earned "     + str(self.get_total_frequent_renter_points()) + " frequent renter points";
         return result
-
-print "Store5.py"
 
 x = Customer("Penelope")
 assert x.statement() ==                     \

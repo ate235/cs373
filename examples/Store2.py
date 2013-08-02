@@ -15,6 +15,8 @@ Replace Temp with Query (120)
 Changed thisAmount to each.get_charge()
 """
 
+print "Store2.py"
+
 class Movie (object) :
     REGULAR     = 0
     NEW_RELEASE = 1
@@ -101,8 +103,6 @@ class Customer (object) :
         result += "Amount owed is " + str(total_amount)           + "\n"
         result += "You earned "     + str(frequent_renter_points) + " frequent renter points";
         return result
-
-print "Store2.py"
 
 x = Customer("Penelope")
 assert x.statement() ==                     \

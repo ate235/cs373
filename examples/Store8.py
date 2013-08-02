@@ -5,24 +5,21 @@
 # ---------
 
 """
-Introduce eager Singleton
-Create Movie.get_output()
-Remove Movie.getTitle()
-Create Rental.statement()
-Remove Rental.getMovie()
-Remove Customer.get_total_charge()
-Remove Customer.get_total_frequent_renter_points()
+Change Movie.Movie() to take a Price instead of a price code
+Remove Movie.set_price_code()
+Remove Movie.getPriceCode()
+Remove Movie.REGULAR
+Remove Movie.NEW_RELEASE
+Remove Movie.CHILDRENS
+Remove Rental.get_days_rented()
 """
+
+print "Store8.py"
 
 class Price (object) :
     def get_frequent_renter_points (self, days_rented) : # const
         return 1
 
-def Singleton (c) :
-    x = c()
-    return lambda : x
-
-@Singleton
 class RegularPrice (Price) :
     def get_charge (self, days_rented) : # const
         result = 2
@@ -30,7 +27,6 @@ class RegularPrice (Price) :
             result += (days_rented - 2) * 1.5
         return result
 
-@Singleton
 class NewReleasePrice (Price) :
     def get_charge (self, days_rented) : # const
         return days_rented * 3
@@ -38,7 +34,6 @@ class NewReleasePrice (Price) :
     def get_frequent_renter_points (self, days_rented) :
         return 2 if (days_rented > 1) else 1
 
-@Singleton
 class ChildrensPrice (Price) :
     def get_charge (self, days_rented) : # const
         result = 1.5
@@ -65,8 +60,8 @@ class Movie (object) :
     def get_frequent_renter_points (self, days_rented) :
         return self.price.get_frequent_renter_points(days_rented)
 
-    def get_output (self, days_rented) : # const
-        return "\t" + self.title + "\t" + str(self.get_charge(days_rented)) + "\n"
+    def get_title (self) : # const
+        return self.title
 
 class Rental (object) :
     def __init__ (self, movie, days_rented) :
@@ -87,12 +82,8 @@ class Rental (object) :
     def get_frequent_renter_points (self) : # const
         return self.movie.get_frequent_renter_points(self.days_rented)
 
-    """
-    movie
-        get_output()
-    """
-    def get_output (self) : # const
-        return self.movie.get_output(self.days_rented)
+    def get_movie (self) : # const
+        return self.movie
 
 class Customer (object) :
     def __init__ (self, name) :
@@ -108,24 +99,36 @@ class Customer (object) :
     """
     iter(rentals).next()
         get_charge()
-        get_frequent_renter_points()
-        get_output()
     """
-    def statement (self) : # O(n)
-        amount = 0
+    def get_total_charge (self) : # const, O(n)
+        result = 0
         for each in self.rentals :
-            amount += each.get_charge()
-        points = 0
-        for each in self.rentals :
-            points += each.get_frequent_renter_points()
-        result = "Rental Record for " + self.get_name() + "\n";
-        for each in self.rentals :
-            result += each.get_output()
-        result += "Amount owed is " + str(amount) + "\n"
-        result += "You earned "     + str(points) + " frequent renter points";
+            result += each.get_charge()
         return result
 
-print "Store8.py"
+    """
+    iter(rentals).next()
+        get_frequent_renter_points()
+    """
+    def get_total_frequent_renter_points (self) : # const, O(n)
+        result = 0
+        for each in self.rentals :
+            result += each.get_frequent_renter_points()
+        return result
+
+    """
+    iter(rentals).next()
+        get_charge()
+        get_movie()
+            get_title()
+    """
+    def statement (self) : # O(n)
+        result = "Rental Record for " + self.get_name() + "\n";
+        for each in self.rentals :
+            result += "\t" + each.get_movie().get_title() + "\t" + str(each.get_charge()) + "\n" # each.get_harge() again!
+        result += "Amount owed is " + str(self.get_total_charge())                 + "\n"
+        result += "You earned "     + str(self.get_total_frequent_renter_points()) + " frequent renter points";
+        return result
 
 x = Customer("Penelope")
 assert x.statement() ==                     \

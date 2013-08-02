@@ -16,6 +16,8 @@ Create Price.get_charge()
 Create Price.get_frequent_renter_points()
 """
 
+print "Store6.py"
+
 class Price (object) :
     def get_frequent_renter_points (self, days_rented) : # const
         return 1
@@ -158,8 +160,6 @@ class Customer (object) :
         result += "Amount owed is " + str(self.get_total_charge())                 + "\n"
         result += "You earned "     + str(self.get_total_frequent_renter_points()) + " frequent renter points";
         return result
-
-print "Store6.py"
 
 x = Customer("Penelope")
 assert x.statement() ==                     \
