@@ -1,0 +1,22 @@
+CS373: Quiz #20 (10 pts)
+
+--------------------------------------------------------------------------
+1. What is Fowler's rationale for calling getCharge() twice instead of
+   caching the result in a local variable?
+   (3 pts)
+--
+
+--------------------------------------------------------------------------
+2. In the video store refactoring Fowler used Replace Type Code with
+   State / Strategy. An alternative would have been Replace Type Code with
+   Subclasses. How would that have been different? Why didn't he do it?
+   [http://www.refactoring.com/catalog/replaceTypeCodeWithStateStrategy.html]
+   [http://www.refactoring.com/catalog/replaceTypeCodeWithSubclasses.html]
+   (3 pts)
+--
+
+--------------------------------------------------------------------------
+3. Fowler moved the conditional statement from Movie.getCharge() to
+   Movie.Movie(). What's the significance of that?
+   (3 pts)
+--
