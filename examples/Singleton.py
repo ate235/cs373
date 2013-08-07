@@ -52,7 +52,7 @@ assert B1().f()        is not "B1.f()"
 assert B1().f()        ==     "B1.f()"
 y = type(B1())()
 assert str(type(y))    ==     "<class '__main__.B1'>"
-assert y               is not B1
+assert y               is not B1()
 assert y.f()           is not "B1.f()"
 assert y.f()           ==     "B1.f()"
 
@@ -67,7 +67,7 @@ assert B2().f()        is not "B2.f()"
 assert B2().f()        ==     "B2.f()"
 y = type(B2())()
 assert str(type(y))    ==     "<class '__main__.B2'>"
-assert y               is not B2
+assert y               is not B2()
 assert y.f()           is not "B2.f()"
 assert y.f()           ==     "B2.f()"
 
@@ -85,7 +85,7 @@ class C1 (object) :
     def f (self) :
         return "C1.f()"
 assert str(type(C1))   ==     "<type 'type'>"
-C1 = BDecorator(C1)
+C1 = CDecorator(C1)
 assert str(type(C1))   ==     "<type 'function'>"
 assert str(type(C1())) ==     "<class '__main__.C1'>"
 assert C1()            is     C1()
@@ -93,7 +93,7 @@ assert C1().f()        is not "C1.f()"
 assert C1().f()        ==     "C1.f()"
 y = type(C1())()
 assert str(type(y))    ==     "<class '__main__.C1'>"
-assert y               is not C1
+assert y               is not C1()
 assert y.f()           is not "C1.f()"
 assert y.f()           ==     "C1.f()"
 
@@ -108,7 +108,7 @@ assert C2().f()        is not "C2.f()"
 assert C2().f()        ==     "C2.f()"
 y = type(C2())()
 assert str(type(y))    ==     "<class '__main__.C2'>"
-assert y               is not C2
+assert y               is not C2()
 assert y.f()           is not "C2.f()"
 assert y.f()           ==     "C2.f()"
 

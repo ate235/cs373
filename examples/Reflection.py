@@ -24,6 +24,7 @@ test(globals()["A"])
 
 try :
     globals()["B"]()
+    assert False
 except TypeError, e :
     assert type(e)      is     TypeError
     assert type(e.args) is     tuple
@@ -33,6 +34,7 @@ except TypeError, e :
 
 try :
     globals()["C"]
+    assert False
 except KeyError, e :
     assert type(e)      is     KeyError
     assert type(e.args) is     tuple
